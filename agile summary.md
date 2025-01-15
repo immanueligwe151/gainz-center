@@ -44,85 +44,72 @@ The tasks in this sprint are:
 #### Scope
 
 MUST HAVE:
-
 - Login and logout function
-
 - Signup function
-
 - Home page, welcome for all visitors
-
 - About page, for contact information
-
 - FAQ page, for commonly asked questions
-
 - Our Gym page, to see the equipment and services given at the gym
-
 - Profile page, to see your details (this will be restricted to logged in users only)
-
 - Profile page to contain links to other pages such as "My Sessions" (for tracking workout sessions), "My PRs" (where user can record their PRs on certain exercises)
-
 - Visitors are able to see the Home, About, FAQ and Our Gym pages, but cannot view Profile page if not logged in
-
 - A button to simulate paying the first joining fee
 
-
 SHOULD HAVE:
-
 - "Plan My Workout" page in Profile page, where user can plan out their sessions and check into the session when they arrive at the gym
-
 - "Book Personal Trainer" page in the Profile page, where user can select from a list of PTs and book one for a specific time
-
 - Email confirmation for signup, check in and out to a workout session and booking of PT
-
 - Cancel membership (de facto deletion of account)
 
 COULD HAVE:
-
 - Recommended workout song of the day
 
 
-### User Stories
+#### User Stories
 
 As a user, I should:
-
 - be able to create an account so I can become a member of the gym
-
 - be able to view the homepage of the gym website so that I can get an idea of what is going on
-
 - be able to view the FAQ page so that I can gain understanding of the commonly asked questions
-
 - be able to see the about page, so I can get more information about the monthly price of the gym
-
 - be able to see the about page, so I know the address of the gym
-
 - be able to see the about page, so I know how to contact the gym either by phone, email or social media
-
 - be able to click the payment simulation button so that I can officially join the gym
 
-
 As a logged in user, I should:
-
 - be able to log into my account using my username and password so I can access my profile details
-
 - be able to change my password so that I can practice basic security
-
 - be able to delete my account so that I can cancel my membership
-
 - be able to access the "My Sessions" page so I can view and review my past workout sessions
-
 - be able to access the "My Sessions" page so I can start and stop a new workout session with the things I'm training in that session
-
 - be able to access the "My PRs" page so I can view my past PRs on various exercises
-
 - be able to access the "My PRs" page so I can add a new PR to a specific exercise
-
 - be able to access the "Plan My Workout" page so that I can plan my next workout
-
 - be able to access the "Book Personal Trainer" page so that I can book an appointment with a PT
 
-
 As an admin, I should:
-
 - be able to view all registered users so I know who is a member of the gym
+- be able to edit things in the database so that I can control what is displayed on the frontend
 
-- be able to edit things in the database so that I can control what is displayed on the frontend 
+
+#### ERD Design
+
+After coming up with the scope and the user stories, I created an entity relationship diagram, which would describe the various tables in 
+the database and their relationships with each other. Some of these tables are standalone (i.e. not having any relationship with any other 
+table) and some of these tables are in relationship with others. The relationships between the tables are one-to-many, with the use of foreign 
+keys to link certain tables to the other. The full ERD can be found in the [README](./README.md) document.
+
+
+#### UI Design
+
+After creating the ERD, I began making a design for the user interface. This started with me coming up with a colour theme, and then a logo for 
+the gym. I drew inspiration for the colour theme from the [JD Gyms](https://www.jdgyms.co.uk/) website (the gym that I go to), which generally 
+uses a theme of green and grey. Using Figma, I designed the interface of some sample webpages of the gym.
+
+However I soon ran into a bit of creator's block. I generally struggle with planning and I'm more proactive in the "coding" side of things, 
+making things as I go along. This did cause me to spend a considerable amount of time thinking of and coming up with designs for the webpages, 
+which ended up in me running over the time intended for Sprint 1 and getting into the time meant for Sprint 2. Eventually, I decided to begin 
+working with what I had managed to get done eventually, and to work on other tasks concurrently with the design. This ended up in me moving 
+the remainder of the tasks in Sprint 1 into Sprint 2.
+
+The Figma sketch can be found [here](https://www.figma.com/design/GP25XAQJHQZZ4yP2yYRqTl/GainzCenter) and also in the [README](./README.md) document.
