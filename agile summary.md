@@ -113,3 +113,45 @@ working with what I had managed to get done eventually, and to work on other tas
 the remainder of the tasks in Sprint 1 into Sprint 2.
 
 The Figma sketch can be found [here](https://www.figma.com/design/GP25XAQJHQZZ4yP2yYRqTl/GainzCenter) and also in the [README](./README.md) document.
+
+
+
+
+### Sprint 2
+The tasks in this sprint are:
+- UI design (brought over from Sprint 1)
+- SQL database setup (brought over from Sprint 1)
+- Django project setup (brought over from Sprint 1)
+- SQL database population
+
+
+#### UI Design
+
+Due to reasons outlined above, this would run concurrently with other tasks as ideas came along to me. This was to enable me to work on other 
+tasks without wasting any more time trying to come up with further designs for the UI. Hence upon the starting of this sprint I went straight 
+to the SQL database setup.
+
+
+#### SQL Database Setup
+
+During the development of the website, I will be using a localhost instance on my PC as a server for the database, which would be deployed to the live 
+hosting site along with the rest of the project. I am using MySQL Workbench as a tool to manage the database and its tables, making use of SQL 
+commands to create the database and populating the preliminary data.
+
+While creating the database, I ran into a bit of a hitch whilst creating the table for the personal trainers, as I was unsure that my ERD design was 
+accurate in reflecting how availability and bookings would be stored. After doing some further brainstorming, I decided to have an extra table that would 
+explicitly show the sessions with their availability and bookings, rather than in one table and then using the application to determine what slot 
+is available and what isn't (as per the original plan). With this in mind, I updated the ERD to reflect this change.
+
+I began with the tables that didn't have any foreign keys, so as to avoid any complications early on. I soon found out that I had forgotten to 
+define some relationships amongst some tables in my ERD, so I made this correction to the diagram, hence further updating it. This proved 
+helpful when I began to create the tables that had foreign keys, as some tables had up to 3 foreign keys and their relationship to other tables 
+needed to be defined in the ERD.
+
+I also realized that I should've defined a relationship between the MyPRs table and the Exercises table, since one would update their PR on a 
+specific exercise (e.g. a new PR on bench press or deadlifts). I subsequently updated the ERD to reflect this.
+
+All SQL commands used in creating and populating the table have been laid out in the SQL file [gainz-center-sql-commands](./gainz-center-sql-commands.sql).
+
+#### Django Project Setup
+
