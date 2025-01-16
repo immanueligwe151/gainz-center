@@ -155,3 +155,4 @@ All SQL commands used in creating and populating the table have been laid out in
 
 #### Django Project Setup
 
+After having set up the database, I then created the Django project. Running the relevant commands in my terminal, I setup the project and called it `gainz_center_project`. Within this project I created the app `gainz_center_app`, which is where the website will be located. I then created a user account within the MySQL instance with which the project will access the 
