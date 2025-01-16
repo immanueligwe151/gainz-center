@@ -155,4 +155,17 @@ All SQL commands used in creating and populating the table have been laid out in
 
 #### Django Project Setup
 
-After having set up the database, I then created the Django project. Running the relevant commands in my terminal, I setup the project and called it `gainz_center_project`. Within this project I created the app `gainz_center_app`, which is where the website will be located. I then created a user account within the MySQL instance with which the project will access the 
+After having set up the database, I then created the Django project. Running the relevant commands in my terminal, I setup the project and called it 
+`gainz_center_project`. Within this project I created the app `gainz_center_app`, which is where the website will be located. I then created a user 
+account within the MySQL instance with which the project will access the database to perform the required operations.
+
+#### SQL Database Setup
+
+After creating the Django project, I then started populating the database with preliminary data. I focused on populating the `FAQs`, `Equipment`, `Exercises`, 
+`ExerciseTypes` and `PersonalTrainers` tables, as these are the prelimary tables that can stand alone without needing data from other aspects of the 
+application. The other tables will be populated alongside the project, as this will require there to be at least 1 record of a user account.
+
+
+
+
+### Sprint 3
