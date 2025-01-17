@@ -8,12 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Gainz Center</title>
     <link rel="stylesheet" href="{% static 'gainz_center_app/css/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="{% static 'gainz_center_app/temporal-image-folder/logo-(small).png' %}" type="image/x-icon">
 </head>
 
 <body>
-    <header>
+    <header class="irish-grover-font">
         <img alt="gainz center logo" src="{% static 'gainz_center_app/temporal-image-folder/logo-(large).png' %}">
         <div>
             <h1>GAINZ CENTER</h1>
@@ -21,7 +23,7 @@
         </div>
     </header>
 
-    <nav>
+    <nav class="irish-grover-font">
         <a href="{%url 'home' %}">Home</a>
         <a href="">About</a>
         <a href="{% url 'faqs' %}">FAQs</a>
@@ -29,12 +31,12 @@
         <a href="">Login</a>
     </nav>
     <section>
-        <h2>About</h2>
-        <section>
+        <h2 class="irish-grover-font page-header-text">About</h2>
+        <section  class="text-on-right-block basic-font">
             <img alt="image of dumbbell section" src="{% static 'gainz_center_app/temporal-image-folder/danielle-cerullo-CQfNt66ttZM-unsplash.jpg' %}">
-            <div>
-                <h5>Some of our services include:</h5>
-                <ul>
+            <div class="services-div">
+                <h3 class="small-device-header">Some of our services include:</h3>
+                <ul class="service-list small-device-text">
                     <li>State-of-the-art equipment, regularly maintained</li>
                     <li>24 hour access to the gym, 7 days a week</li>
                     <li>Luxurious changing rooms, showers and saunas</li>
@@ -45,23 +47,23 @@
             </div>
         </section>
             
-        <section>
-            <h3>Where to find us</h3>
-            <h6>You can find us at the address below:</h6>
+        <section class="basic-font find-us">
+            <h3 class="irish-grover-font" style="margin: 18px 0px 3px 0px;">Where to find us</h3>
+            <h4 style="margin: 3px 0px 4px 0px;">You can find us at the address below:</h4>
             <p>45-48 Fitness Street</p>
             <p>Solihull</p>
             <p>Birmingham B39 8ED</p>
         </section>
 
-        <section id="contact-us">
-            <h3>Contact us</h3>
-            <div>
-                <div>
+        <section id="contact-us" class="basic-font contact-us" style="margin: 18px 0px 3px 0px;"">
+            <h3 class="irish-grover-font">Contact us</h3>
+            <div class="contact-block">
+                <div class="contact-info">
                     <p>Email us at</p>
                     <a href="mailto:enquiries@gainzcenter.co.uk">enquiries@gainzcenter.co.uk</a>
                 </div>
 
-                <div>
+                <div class="contact-info">
                     <p>Phone us at</p>
                     <a href="tel:+44121348762">0121 348 762</a>
                 </div>
@@ -69,17 +71,23 @@
         </section>
     </section>
 
-    <footer>
-        <h3>Follow us on social media</h3>
-        <div>
-            <a href="https://www.facebook.com" class="fa fa-facebook" target="_blank"></a>
-            <a href="https://www.twitter.com" class="fa fa-twitter" target="_blank"></a>
-            <a href="https://www.instagram.com" class="fa fa-instagram" target="_blank"></a>
+    <footer class="social-media">
+        <h3 class="irish-grover-font">Follow us on social media</h3>
+        <div class="social-media-icons">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
         </div>
     </footer>
 
 
-    <script src="{% static 'brewsters_app/js/script.js' %}"></script> <!-- Link to JavaScript -->
+    <script src="{% static 'gainz_center_app/js/script.js' %}"></script> <!-- Link to JavaScript -->
 </body>
 
 </html>

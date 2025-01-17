@@ -8,11 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Gainz Center</title>
     <link rel="stylesheet" href="{% static 'gainz_center_app/css/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap">
     <link rel="icon" href="{% static 'gainz_center_app/temporal-image-folder/logo-(small).png' %}" type="image/x-icon">
 </head>
 
 <body>
-    <header>
+    <header class="irish-grover-font">
         <img alt="gainz center logo" src="{% static 'gainz_center_app/temporal-image-folder/logo-(large).png' %}">
         <div>
             <h1>GAINZ CENTER</h1>
@@ -20,18 +21,18 @@
         </div>
     </header>
 
-    <nav>
+    <nav class="irish-grover-font">
         <a href="">Home</a>
         <a href="{% url 'about' %}">About</a>
         <a href="{% url 'faqs' %}">FAQs</a>
         <a href="{% url 'our-gym' %}">Our Gym</a>
         <a href="">Login</a>
     </nav>
-    <section>
+    <section class="text-on-right-block">
         <img alt="image of a boxing ring" src="{% static 'gainz_center_app/temporal-image-folder/pexels-cottonbro-4753894.jpg' %}">
         <div>
-            <h2>Welcome to the Gainz Center!</h2>
-            <p>Are you looking for a gym to train at? A fitness center to get fit? Well look no further! Here at the
+            <h2 class="irish-grover-font small-device-header">Welcome to the Gainz Center!</h2>
+            <p class="basic-font">Are you looking for a gym to train at? A fitness center to get fit? Well look no further! Here at the
                 Gainz Center, we’re all about getting big, strong and fit. We’ve got state-of-the-art equipment to help
                 you achieve your goals. Whether you’re looking to build muscle and look bigger, power lift and get
                 stronger, or just to generally keep fit, we are the right place for you. Join us today to get started on
@@ -40,7 +41,7 @@
     </section>
 
 
-    <script src="{% static 'brewsters_app/js/script.js' %}"></script> <!-- Link to JavaScript -->
+    <script src="{% static 'gainz_center_app/js/script.js' %}"></script> <!-- Link to JavaScript -->
 </body>
 
 </html>

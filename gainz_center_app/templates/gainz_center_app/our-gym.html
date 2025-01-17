@@ -8,12 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Gym | Gainz Center</title>
     <link rel="stylesheet" href="{% static 'gainz_center_app/css/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="{% static 'gainz_center_app/temporal-image-folder/logo-(small).png' %}" type="image/x-icon">
 </head>
 
 <body>
-    <header>
+    <header class="irish-grover-font">
         <img alt="gainz center logo" src="{% static 'gainz_center_app/temporal-image-folder/logo-(large).png' %}">
         <div>
             <h1>GAINZ CENTER</h1>
@@ -21,7 +22,7 @@
         </div>
     </header>
 
-    <nav>
+    <nav class="irish-grover-font">
         <a href="{%url 'home' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
         <a href="{%url 'faqs' %}">FAQs</a>
@@ -30,18 +31,37 @@
     </nav>
     
     <section>
-        <h2>Our Gym</h2>
-        <p>Our gym is fully stacked up with state-of-the-art equipment from respectable brands. We have everything from
-            cable machines, a wide range of dumbbells, benches to squat racks. Below is a list of all equipment that we have
-            available at the gym!</p>
+        <h2 class="irish-grover-font page-header-text">Our Gym</h2>
+        <div class="basic-font intro">
+            <p class="small-device-text">Our gym is fully stacked up with state-of-the-art equipment from respectable brands. We have everything from
+                cable machines, a wide range of dumbbells, benches to squat racks. Below is a list of all equipment that we have
+                available at the gym!</p>
+        </div>
     </section>
 
     <section>
+        {% for equipment in equipments %}
+        <div class="collapsible-div">
+            <div class="collapsible-header">
+                <h3 class="irish-grover-font">{{ equipment.equipment_name }}</h3>
+                <div id="arrow" class="arrow">&#9660;</div> <!-- Down arrow -->
+            </div>
+            <div class="collapsible-content equipment-desc">
+                <img alt="gym equipment" src="{{ equipment.image_link }}">
+                <div>
+                    <p class="basic-font" style="font-size: medium;">{{ equipment.equipment_description }}</p>
+                    <p class="basic-font" style="font-size: small">Quantity: {{ equipment.quantitiy }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Nothing to show</p>
 
+        {% endfor %}
     </section>
 
 
-    <script src="{% static 'brewsters_app/js/script.js' %}"></script> <!-- Link to JavaScript -->
+    <script src="{% static 'gainz_center_app/js/script.js' %}"></script> <!-- Link to JavaScript -->
 </body>
 
 </html>

@@ -1,0 +1,308 @@
+/* general styles that apply across the same elements except where specified otherwise */
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #43FFBD;
+    padding: 0px;
+    margin: 0px;
+}
+
+header {
+    background-color: #00B173;
+    padding: 10px;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+header img {
+    width: 8rem;
+    height: 8rem;
+}
+
+header div {
+    justify-items: center;
+}
+
+header div h1 {
+    margin: 2px;
+}
+
+header div h3 {
+    margin: 2px;
+}
+
+
+nav {
+    background-color: #8AD584;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+
+nav a {
+    font-size: larger;
+}
+
+
+/* general styles that apply across the same classes */
+.irish-grover-font {
+    font-family: 'Irish Grover', cursive;
+}
+
+.basic-font {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-header-text {
+    text-align: center; 
+    margin-top: 10px;
+}
+
+.text-on-right-block {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.text-on-right-block img {
+    width: 45%;
+    height: auto;
+}
+
+.text-on-right-block div {
+    max-width: 570px;
+    margin: 0px 10px 10px 10px;
+}
+
+.text-on-right-block p {
+    font-size: large;
+}
+
+.collapsible-div {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 60%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #00B173;
+    cursor: pointer;
+}
+
+.collapsible-header h3 {
+    margin: 0;
+}
+
+.arrow {
+    font-size: 16px;
+    transition: transform 0.3s ease; /* Smooth arrow rotation */
+}
+
+.collapsible-content {
+    max-height: 0; /* Initially collapsed */
+    overflow: hidden;
+    background-color: #8AD584;
+    border-top: 1px solid black;
+    transition: max-height 0.4s ease; /* Smooth expansion/collapse */
+    padding: 0 10px; /* Padding collapsed initially */
+}
+
+.collapsible-content p {
+    margin: 10px 0;
+}
+
+.intro {
+    width: 65%;
+    height: auto;
+    text-align: center;
+    font-size: larger;
+    justify-self: center;
+}
+
+.equipment-desc {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.equipment-desc img {
+    width: 30%;
+    height: auto;
+    margin: 10px 5px 10px 5px;
+}
+
+.equipment-desc div {
+    width: 65%;
+}
+
+
+/* styles that apply across individual elements */
+
+.services-div ul, .services-div p {
+    font-size: large;
+}
+
+.service-list {
+    list-style: none; /* Removes default bullets */
+    padding: 0;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 25px; /* Space for the tick mark */
+}
+
+.service-list li::before {
+    content: "✔";
+    color: green;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.find-us, .contact-us, .social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.find-us p {
+    margin: 2px;
+}
+
+.contact-block {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 80px;
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 3px;
+}
+
+.social-media-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.social-media-icons a {
+    text-decoration: none;
+    color: #000; /* Default color */
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+.social-media-icons a:hover {
+    color: #0077B5; /* hover color */
+}
+
+
+
+/* styles that add further styling to  specific elements within a class or element-group */
+
+
+
+/* to aid responsive design on smaller devices */
+@media (max-width: 768px) {  
+    header {
+        gap: 10px;
+    }
+
+    header img {
+        width: 4rem;
+        height: 4rem;
+    }
+    
+    header div {
+        justify-items: center;
+    }
+    
+    header div h1 {
+        font-size: 130%;
+    }
+    
+    header div h3 {
+        font-size: 75%;
+    }
+    
+    
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4%;
+        padding: 8px;
+    }
+    
+    nav a {
+        font-size: medium;
+    }
+    
+    .page-header-text {
+        margin-top: 5px;
+    }
+
+    .small-device-header {
+        text-align: center;
+    }
+    
+    .text-on-right-block {
+        padding: 5px;
+    }
+    
+    .text-on-right-block img {
+        width: 60%;
+    }
+    
+    .text-on-right-block div {
+        width: 80%;
+        max-width: 850px;
+    }
+    
+    .text-on-right-block p, .small-device-text {
+        font-size: medium;
+        text-align: center;
+    }
+    
+    .collapsible-div {
+        width: 80%;
+        max-width: 800px;
+        margin: 12px auto;
+    }
+
+    .collapsible-content {
+        overflow: auto;
+    }
+    
+}

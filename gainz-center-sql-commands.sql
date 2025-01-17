@@ -281,3 +281,31 @@ INSERT INTO exercises VALUES (
     'Crossfit', 
     'A dynamic CrossFit staple that combines a front squat and an overhead press. This full-body exercise builds explosive power, targets the legs, core, and shoulders, and torches calories for an intense strength and cardio workout.'
 );
+
+INSERT INTO equipment VALUES (
+	'Squat Rack',
+    "We have several squat racks available at our gym! With multiple levels and barbels of varying weights, as well as several free weights, you can easily adjust the required level so that you can squat as efficiently as you'd like! You can use these for box squats, overhead presses, barbell squats, and many more!",
+    'https://i.postimg.cc/15GKqYGr/pexels-dubtastic-28320723.jpg',
+    10
+);
+
+INSERT INTO equipment VALUES (
+	'Bench Rack',
+    'Use this to have the perfect bench press! With our adjustable back, you can also carry out incline bench presses as well at different angles. Use this machine to target various areas of your chest to build that perfect physique!',
+    'https://i.postimg.cc/X7rbNd9W/2151114151.jpg',
+    15
+);
+
+INSERT INTO equipment VALUES (
+	'Kettlebell Weights',
+    'We have a wide range of kettlebell weights of various colours, sizes and weights! Use these to build stability and grip strength, and as a safe means of carrying out more intense exercises!',
+    'https://i.postimg.cc/CxDpk0v6/3d-gym-equipment-1.png',
+    60
+);
+
+INSERT INTO equipment VALUES (
+	'Pulldown Machines',
+    "This is one of our machines that can be used to perform multiple exercises in one go, especially if you're a super setter! Use this to perform exercises like lat pulldowns, overhead triceps extensions as well as triceps pushdowns!",
+    'https://i.postimg.cc/7Yjy5hN2/3d-gym-equipment.jpg',
+    8
+);

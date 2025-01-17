@@ -153,19 +153,44 @@ specific exercise (e.g. a new PR on bench press or deadlifts). I subsequently up
 
 All SQL commands used in creating and populating the table have been laid out in the SQL file [gainz-center-sql-commands](./gainz-center-sql-commands.sql).
 
+
 #### Django Project Setup
 
-After having set up the database, I then created the Django project. Running the relevant commands in my terminal, I setup the project and called it 
-`gainz_center_project`. Within this project I created the app `gainz_center_app`, which is where the website will be located. I then created a user 
-account within the MySQL instance with which the project will access the database to perform the required operations.
+After having set up the database, I then created the Django project. Running the relevant commands in my terminal, I setup the project and called it `gainz_center_project`. Within this project I created the app `gainz_center_app`, which is where the website will be located. I then created a user account within the MySQL instance with which the project will access the database to perform the required operations.
+
 
 #### SQL Database Setup
 
-After creating the Django project, I then started populating the database with preliminary data. I focused on populating the `FAQs`, `Equipment`, `Exercises`, 
-`ExerciseTypes` and `PersonalTrainers` tables, as these are the prelimary tables that can stand alone without needing data from other aspects of the 
-application. The other tables will be populated alongside the project, as this will require there to be at least 1 record of a user account.
+After creating the Django project, I then started populating the database with preliminary data. I focused on populating the `FAQs`, `Equipment`, `Exercises`, `ExerciseTypes` and `PersonalTrainers` tables, as these are the prelimary tables that can stand alone without needing data from other aspects of the application. The other tables will be populated alongside the project, as this will require there to be at least 1 record of a user account.
 
 
 
 
 ### Sprint 3
+The tasks in this sprint are:
+- Creating the `static` and `template` directories
+- Creating HTML, CSS and JavaScript for basic frontend functions
+- Creating the Home, About, FAQ and Our-Gym pages
+
+
+#### Creating Directories
+
+This was a fairly easy task as I created the folders `static` and `templates`. These would hold the styles and JS files, and the HTML files respectively, which would be served by the Django backend. I created another folder `temporal-image-folder` within the `static` directory where i kept my images, as I was having issues with PostImg, whereby my computer was blocking access to the 
+site because it believed that it was a potential source of malware and inappropriate content. I put my images there temporarily, with the aim of replacing the image elements with the hosted images once I resolved the issue with PostImg.
+
+
+#### Designing Frontend
+
+This was basically a combination of the last 2 tasks in this sprint. Following the initial designs created in Sprint 1, I proceeded 
+to write HTML and CSS code to design the frontend of the Home, About, FAQ and Our-Gym pages. I also ensured to include responsive 
+design, testing out the results with various sizes of my browser window, ensuring that it would still be readable to users with 
+smaller screens. At the suggestion of a friend, I slightly adjusted the design whilst coding, ensuring that only headers had the `Irish Grover` font (the font used for the design) whilst all other text had a basic typeface font.
+
+I also had to do a bit of backend coding in Django, as the FAQs would be pulled from the database, as well as the equipment 
+to be displayed in the Our-Gym page. I defined models in [`models.py`](./gainz_center_app/models.py) that would be used to retrieve information from their respective databases, passed them through [`views.py`](./gainz_center_app/views.py) and brought them into their respective HTML pages.
+
+
+
+
+### Sprint 4
+The tasks in this sprint are:

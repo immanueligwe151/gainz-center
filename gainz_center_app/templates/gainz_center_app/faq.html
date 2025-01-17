@@ -8,12 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQs | Gainz Center</title>
     <link rel="stylesheet" href="{% static 'gainz_center_app/css/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="{% static 'gainz_center_app/temporal-image-folder/logo-(small).png' %}" type="image/x-icon">
 </head>
 
 <body>
-    <header>
+    <header class="irish-grover-font">
         <img alt="gainz center logo" src="{% static 'gainz_center_app/temporal-image-folder/logo-(large).png' %}">
         <div>
             <h1>GAINZ CENTER</h1>
@@ -21,28 +22,43 @@
         </div>
     </header>
 
-    <nav>
+    <nav class="irish-grover-font">
         <a href="{%url 'home' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
         <a href="">FAQs</a>
         <a href="{% url 'our-gym' %}">Our Gym</a>
         <a href="">Login</a>
     </nav>
-    
+
     <section>
-        <h2>Frequently Asked Questions (FAQs)</h2>
-        <p>We know that you have some questions about our gym; everyone does. So we have compiled a list of the most common ones
-            we get asked and have provided answers to them! If you feel like your queries have not been answered or you’re not
-            satisfied, then feel free to <a href="{% url 'about'%}#contact-us">contact us</a>, and we will be able to help
-            you feel more settled!</p>
+        <h2 class="irish-grover-font page-header-text">Frequently Asked Questions (FAQs)</h2>
+        <div class="basic-font intro">
+            <p class="small-device-text">We know that you have some questions about our gym; everyone does. So we have compiled a list of the most common ones
+                we get asked and have provided answers to them! If you feel like your queries have not been answered or you’re not
+                satisfied, then feel free to <a href="{% url 'about'%}#contact-us">contact us</a>, and we will be able to help
+                you feel more settled!</p>
+        </div>
     </section>
 
     <section>
+        {% for faq in faqs %}
+        <div class="collapsible-div">
+            <div class="collapsible-header">
+                <h3 class="irish-grover-font small-device-header">{{ faq.question }}?</h3>
+                <div id="arrow" class="arrow">&#9660;</div> <!-- Down arrow -->
+            </div>
+            <div class="collapsible-content">
+                <p class="basic-font small-device-text" style="font-size: medium;">{{ faq.answer }}</p>
+            </div>
+        </div>
+        {% empty %}
+        <p>Nothing to show</p>
 
+        {% endfor %}
     </section>
 
 
-    <script src="{% static 'brewsters_app/js/script.js' %}"></script> <!-- Link to JavaScript -->
+    <script src="{% static 'gainz_center_app/js/script.js' %}"></script> <!-- Link to JavaScript -->
 </body>
 
 </html>
