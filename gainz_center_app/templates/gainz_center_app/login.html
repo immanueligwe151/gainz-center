@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | Gainz Center</title>
+    <link rel="stylesheet" href="{% static 'gainz_center_app/css/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="{% static 'gainz_center_app/temporal-image-folder/logo-(small).png' %}" type="image/x-icon">
+</head>
+
+<body>
+    <header class="irish-grover-font">
+        <img alt="gainz center logo" src="{% static 'gainz_center_app/temporal-image-folder/logo-(large).png' %}">
+        <div>
+            <h1>GAINZ CENTER</h1>
+            <h3>Your go-to place for massive gainz!</h3>
+        </div>
+    </header>
+
+    <nav class="irish-grover-font">
+        <a href="{%url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'faqs'%}">FAQs</a>
+        <a href="{% url 'our-gym' %}">Our Gym</a>
+        <a href="">Login</a>
+    </nav>
+
+    <section>
+        <h2 class="irish-grover-font page-header-text">Login</h2>
+        <div class="basic-font intro">
+            <p class="small-device-text">Login to your account to view your membership, your gym records, and to get access to our personal trainers!</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="auth-details">
+            <form id="login-form" class="auth-form">
+                <input id="username-sign-in" type="text" placeholder="Enter your username here*" class="auth-form-fields basic-font" required>
+                <br>
+                <input id="password-sign-in" type="password" placeholder="Enter your password here*" class="auth-form-fields basic-font" required>
+                <br>
+                <input type="submit" value="Login" class="auth-button irish-grover-font">
+            </form>
+            <h3 class="irish-grover-font">New to the gym? <a class="autn-a" href="{% url 'signup' %}">Sign up</a> here.</h3>
+        </div>
+    </section>
+
+
+    <script src="{% static 'gainz_center_app/js/script.js' %}"></script>
+</body>
+
+</html>

@@ -15,3 +15,9 @@ def about(request):
 def our_gym(request):
     equipments = Equipment.objects.all()
     return render(request, 'gainz_center_app/our-gym.html', { 'equipments' : equipments })
+
+def login(request):
+    return render(request, 'gainz_center_app/login.html')
+
+def signup(request):
+    return render(request, 'gainz_center_app/signup.html')

@@ -102,15 +102,9 @@ keys to link certain tables to the other. The full ERD can be found in the [READ
 
 #### UI Design
 
-After creating the ERD, I began making a design for the user interface. This started with me coming up with a colour theme, and then a logo for 
-the gym. I drew inspiration for the colour theme from the [JD Gyms](https://www.jdgyms.co.uk/) website (the gym that I go to), which generally 
-uses a theme of green and grey. Using Figma, I designed the interface of some sample webpages of the gym.
+After creating the ERD, I began making a design for the user interface. This started with me coming up with a colour theme, and then a logo for the gym. I drew inspiration for the colour theme from the [JD Gyms](https://www.jdgyms.co.uk/) website (the gym that I go to), which generally uses a theme of green and grey. Using Figma, I designed the interface of some sample webpages of the gym.
 
-However I soon ran into a bit of creator's block. I generally struggle with planning and I'm more proactive in the "coding" side of things, 
-making things as I go along. This did cause me to spend a considerable amount of time thinking of and coming up with designs for the webpages, 
-which ended up in me running over the time intended for Sprint 1 and getting into the time meant for Sprint 2. Eventually, I decided to begin 
-working with what I had managed to get done eventually, and to work on other tasks concurrently with the design. This ended up in me moving 
-the remainder of the tasks in Sprint 1 into Sprint 2.
+However I soon ran into a bit of creator's block. I generally struggle with planning and I'm more proactive in the "coding" side of things, making things as I go along. This did cause me to spend a considerable amount of time thinking of and coming up with designs for the webpages, which ended up in me running over the time intended for Sprint 1 and getting into the time meant for Sprint 2. Eventually, I decided to begin working with what I had managed to get done eventually, and to work on other tasks concurrently with the design. This ended up in me moving the remainder of the tasks in Sprint 1 into Sprint 2.
 
 The Figma sketch can be found [here](https://www.figma.com/design/GP25XAQJHQZZ4yP2yYRqTl/GainzCenter) and also in the [README](./README.md) document.
 
