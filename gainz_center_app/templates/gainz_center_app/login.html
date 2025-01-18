@@ -46,6 +46,14 @@
                 <input id="password-sign-in" name="password-sign-in" type="password" placeholder="Enter your password here*" class="auth-form-fields basic-font" required>
                 <br>
                 <input type="submit" value="Login" class="auth-button irish-grover-font">
+                {% for message in messages %}
+                {% if "login_success" in message.tags %}
+                    <span class="error-text basic-font" style="color: green">{{ message }}</span>
+                {% endif %}
+                {% if "login_failure" in message.tags %}
+                    <span class="error-text basic-font">{{ message }}</span>
+                {% endif %}
+                {% endfor %}
             </form>
             <h3 class="irish-grover-font small-device-text">New to the gym? <a class="autn-a" href="{% url 'signup' %}">Sign up</a> here.</h3>
         </div>

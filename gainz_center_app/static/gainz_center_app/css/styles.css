@@ -200,6 +200,12 @@ nav a {
     color: #00F0FF;
 }
 
+.error-text {
+    color: red;
+    font-size: medium;
+    text-align: left;
+}
+
 
 /* styles that apply across individual elements */
 

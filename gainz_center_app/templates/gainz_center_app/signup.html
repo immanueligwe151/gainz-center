@@ -41,19 +41,39 @@
         <div class="auth-details">
             <form id="signup-form" class="auth-form" method="post" action="{% url 'signup' %}">
                 {% csrf_token %}
-                <input id="name-sign-up" name="name-sign-up" type="text" placeholder="Enter your full name*" class="auth-form-fields" required>
+                <input id="name-sign-up" name="name-sign-up" type="text" value="{{ name }}" placeholder="Enter your full name*" class="auth-form-fields" required>
                 <br>
-                <input id="username-sign-up" name="username-sign-up" type="text" placeholder="Create a username*" class="auth-form-fields" required>
+                <input id="username-sign-up" name="username-sign-up" type="text" value="{{ username }}"placeholder="Create a username*" class="auth-form-fields" required>
+                {% for message in messages %}
+                {% if "username" in message.tags %}
+                <span class="error-text basic-font">{{ message }}</span>
+                {% endif %}
+                {% endfor %}
                 <br>
-                <input id="email-sign-up" name="email-sign-up" type="email" placeholder="Enter your email here*" class="auth-form-fields" required>
+                <input id="email-sign-up" name="email-sign-up" type="email" value="{{ email }}" placeholder="Enter your email here*" class="auth-form-fields" required>
+                {% for message in messages %}
+                {% if "email" in message.tags %}
+                    <span class="error-text basic-font">{{ message }}</span>
+                {% endif %}
+                {% endfor %}
                 <br>
-                <input id="number-sign-up" name="number-sign-up" type="tel" placeholder="Enter your mobile here*" class="auth-form-fields" required>
+                <input id="number-sign-up" name="number-sign-up" type="tel" value="{{ number }}" placeholder="Enter your mobile here*" class="auth-form-fields" required>
+                {% for message in messages %}
+                {% if "mobile" in message.tags %}
+                    <span class="error-text basic-font">{{ message }}</span>
+                {% endif %}
+                {% endfor %}
                 <br>
-                <input id="dob-sign-up" name="dob-sign-up" type="date" placeholder="Enter your date of birth here*" class="auth-form-fields" required>
+                <input id="dob-sign-up" name="dob-sign-up" type="date" value="{{ dob }}" placeholder="Enter your date of birth here*" class="auth-form-fields" required>
                 <br>
                 <input id="password1" name="password1" type="password" placeholder="Enter your password here*" class="auth-form-fields" required>
                 <br>
                 <input id="password2" name="password2" type="password" placeholder="Re-enter your password here*" class="auth-form-fields" required>
+                {% for message in messages %}
+                {% if "password" in message.tags %}
+                    <span class="error-text basic-font">{{ message }}</span>
+                {% endif %}
+                {% endfor %}
                 <br>
                 <h3 class="irish-grover-font intro small-device-text">By clicking the button below you are consenting to a simulated recurring fee of £29.99 for your membership</h3>
                 <input type="submit" value="SIGN UP" class="auth-button">
@@ -66,3 +86,9 @@
 </body>
 
 </html>
+
+<!--{% for message in messages %}
+            {% if "username" in message.tags %}
+                <span class="error-text">{{ message }}</span>
+            {% endif %}
+        {% endfor %}-->
