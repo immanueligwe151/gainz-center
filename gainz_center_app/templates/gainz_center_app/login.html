@@ -39,14 +39,15 @@
 
     <section>
         <div class="auth-details">
-            <form id="login-form" class="auth-form">
-                <input id="username-sign-in" type="text" placeholder="Enter your username here*" class="auth-form-fields basic-font" required>
+            <form id="login-form" class="auth-form" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input id="username-sign-in" name="username-sign-in" type="text" placeholder="Enter your username here*" class="auth-form-fields basic-font" required>
                 <br>
-                <input id="password-sign-in" type="password" placeholder="Enter your password here*" class="auth-form-fields basic-font" required>
+                <input id="password-sign-in" name="password-sign-in" type="password" placeholder="Enter your password here*" class="auth-form-fields basic-font" required>
                 <br>
                 <input type="submit" value="Login" class="auth-button irish-grover-font">
             </form>
-            <h3 class="irish-grover-font">New to the gym? <a class="autn-a" href="{% url 'signup' %}">Sign up</a> here.</h3>
+            <h3 class="irish-grover-font small-device-text">New to the gym? <a class="autn-a" href="{% url 'signup' %}">Sign up</a> here.</h3>
         </div>
     </section>
 

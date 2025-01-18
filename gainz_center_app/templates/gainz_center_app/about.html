@@ -28,7 +28,11 @@
         <a href="">About</a>
         <a href="{% url 'faqs' %}">FAQs</a>
         <a href="{% url 'our-gym' %}">Our Gym</a>
+        {% if request.session.username %}
+        <a href="{% url 'my-profile' %}">My Profile</a>
+        {% else %}
         <a href="{% url 'login' %}">Login</a>
+        {% endif %}
     </nav>
     <section>
         <h2 class="irish-grover-font page-header-text">About</h2>

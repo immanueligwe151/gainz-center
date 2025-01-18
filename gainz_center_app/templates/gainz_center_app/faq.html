@@ -27,7 +27,11 @@
         <a href="{% url 'about' %}">About</a>
         <a href="">FAQs</a>
         <a href="{% url 'our-gym' %}">Our Gym</a>
+        {% if request.session.username %}
+        <a href="{% url 'my-profile' %}">My Profile</a>
+        {% else %}
         <a href="{% url 'login' %}">Login</a>
+        {% endif %}
     </nav>
 
     <section>

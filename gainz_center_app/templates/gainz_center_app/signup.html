@@ -27,7 +27,7 @@
         <a href="{% url 'about' %}">About</a>
         <a href="{% url 'faqs'%}">FAQs</a>
         <a href="{% url 'our-gym' %}">Our Gym</a>
-        <a href="">Login</a>
+        <a href="{% url 'login' %}">Login</a>
     </nav>
 
     <section>
@@ -39,22 +39,23 @@
 
     <section>
         <div class="auth-details">
-            <form id="signup-form" class="auth-form">
-                <input id="name" type="text" placeholder="Enter your full name*" class="auth-form-fields" required>
+            <form id="signup-form" class="auth-form" method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <input id="name-sign-up" name="name-sign-up" type="text" placeholder="Enter your full name*" class="auth-form-fields" required>
                 <br>
-                <input id="username" type="text" placeholder="Create a username*" class="auth-form-fields" required>
+                <input id="username-sign-up" name="username-sign-up" type="text" placeholder="Create a username*" class="auth-form-fields" required>
                 <br>
-                <input id="email-sign-up" type="email" placeholder="Enter your email here*" class="auth-form-fields" required>
+                <input id="email-sign-up" name="email-sign-up" type="email" placeholder="Enter your email here*" class="auth-form-fields" required>
                 <br>
-                <input id="number" type="tel" placeholder="Enter your mobile here*" class="auth-form-fields" required>
+                <input id="number-sign-up" name="number-sign-up" type="tel" placeholder="Enter your mobile here*" class="auth-form-fields" required>
                 <br>
-                <input id="dob-sign-up" type="date" placeholder="Enter your date of birth here*" class="auth-form-fields" required>
+                <input id="dob-sign-up" name="dob-sign-up" type="date" placeholder="Enter your date of birth here*" class="auth-form-fields" required>
                 <br>
-                <input id="password1" type="password" placeholder="Enter your password here*" class="auth-form-fields" required>
+                <input id="password1" name="password1" type="password" placeholder="Enter your password here*" class="auth-form-fields" required>
                 <br>
-                <input id="password2" type="password" placeholder="Re-enter your password here*" class="auth-form-fields" required>
+                <input id="password2" name="password2" type="password" placeholder="Re-enter your password here*" class="auth-form-fields" required>
                 <br>
-                <h3 class="irish-grover-font">By clicking the button below you are consenting to a simulated recurring fee of £29.99 for your membership</h3>
+                <h3 class="irish-grover-font intro small-device-text">By clicking the button below you are consenting to a simulated recurring fee of £29.99 for your membership</h3>
                 <input type="submit" value="SIGN UP" class="auth-button">
             </form>
         </div>
