@@ -6,9 +6,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Gainz Center</title>
+    <title>FAQs | Gainz Center</title>
     <link rel="stylesheet" href="{% static 'gainz_center_app/css/styles.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="{% static 'gainz_center_app/temporal-image-folder/logo-(small).png' %}" type="image/x-icon">
 </head>
 
@@ -22,31 +23,28 @@
     </header>
 
     <nav class="irish-grover-font">
-        <a href="">Home</a>
+        <a href="{%url 'home' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'faqs' %}">FAQs</a>
+        <a href="">FAQs</a>
         <a href="{% url 'our-gym' %}">Our Gym</a>
-        {% if request.session.username %}
         <a href="{% url 'my-profile' %}">My Profile</a>
         <div>
             <a href="{% url 'my-sessions' %}">My Sessions</a>
             <a href="{% url 'my-prs' %}">My PRs</a>
             <a href="{% url 'personal-trainers' %}">Personal Trainers</a>
         </div>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        {% endif %}
     </nav>
-    <section class="text-on-right-block">
-        <img alt="image of a boxing ring" src="{% static 'gainz_center_app/temporal-image-folder/pexels-cottonbro-4753894.jpg' %}">
-        <div>
-            <h2 class="irish-grover-font small-device-header">Welcome to the Gainz Center!</h2>
-            <p class="basic-font">Are you looking for a gym to train at? A fitness center to get fit? Well look no further! Here at the
-                Gainz Center, we’re all about getting big, strong and fit. We’ve got state-of-the-art equipment to help
-                you achieve your goals. Whether you’re looking to build muscle and look bigger, power lift and get
-                stronger, or just to generally keep fit, we are the right place for you. Join us today to get started on
-                your fitness journey!</p>
+
+    <section>
+        <h2 class="irish-grover-font page-header-text">My PRs</h2>
+        <div class="basic-font intro">
+            <p class="small-device-text">PR page</p>
         </div>
+    </section>
+
+    <section>
+        
+        
     </section>
 
 

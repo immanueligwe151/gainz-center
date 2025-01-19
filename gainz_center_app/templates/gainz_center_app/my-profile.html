@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQs | Gainz Center</title>
+    <title>My Profile | Gainz Center</title>
     <link rel="stylesheet" href="{% static 'gainz_center_app/css/styles.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,20 +28,57 @@
         <a href="">FAQs</a>
         <a href="{% url 'our-gym' %}">Our Gym</a>
         <a href="{% url 'my-profile' %}">My Profile</a>
+        <div>
+            <a href="{% url 'my-sessions' %}">My Sessions</a>
+            <a href="{% url 'my-prs' %}">My PRs</a>
+            <a href="{% url 'personal-trainers' %}">Personal Trainers</a>
+        </div>
     </nav>
 
     <section>
         <h2 class="irish-grover-font page-header-text">My Profile</h2>
         <div class="basic-font intro">
-            <p class="small-device-text">This is the profile page</p>
+            <p class="small-device-text">Below are all your profile details. If anything is wrong then please contact us and we will be able to rectify any issues!</p>
         </div>
     </section>
 
     <section>
-        <form action="{% url 'logout' %}" method="post" id="logout-form" style="display: inline;">
-            {% csrf_token %}
-            <a href="#" onclick="document.getElementById('logout-form').submit();">Log out</a>
-        </form>
+        <table class="profile-table small-device-text">
+            <tr>
+                <td class="profile-headings irish-grover-font">Name</td>
+                <td class="profile-details basic-font">{{ user.person_name }}</td>
+            </tr>
+            <tr>
+                <td class="profile-headings irish-grover-font">Username</td>
+                <td class="profile-details basic-font">{{ user.username }}</td>
+            </tr>
+            <tr>
+                <td class="profile-headings irish-grover-font">Email</td>
+                <td class="profile-details basic-font">{{ user.email }}</td>
+            </tr>
+            <tr>
+                <td class="profile-headings irish-grover-font">Mobile</td>
+                <td class="profile-details basic-font">{{ user.mobile }}</td>
+            </tr>
+            <tr>
+                <td class="profile-headings irish-grover-font">Date of Birth</td>
+                <td class="profile-details basic-font">{{ user.dob }}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <div class="profile-actions">
+            <button class="profile-button irish-grover-font small-device-text">Change Password</button>
+            <button class="profile-button irish-grover-font small-device-text">Change Email</button>
+            <button class="profile-button irish-grover-font small-device-text">Delete Account</button>
+            <form action="{% url 'logout' %}" method="post" id="logout-form" style="display: inline;">
+                {% csrf_token %}
+                <input type="submit" value="Logout" class="profile-button irish-grover-font small-device-text">
+            </form>
+        </div>
+
+        
     </section>
 
 

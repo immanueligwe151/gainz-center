@@ -47,9 +47,6 @@
                 <br>
                 <input type="submit" value="Login" class="auth-button irish-grover-font">
                 {% for message in messages %}
-                {% if "login_success" in message.tags %}
-                    <span class="error-text basic-font" style="color: green">{{ message }}</span>
-                {% endif %}
                 {% if "login_failure" in message.tags %}
                     <span class="error-text basic-font">{{ message }}</span>
                 {% endif %}

@@ -42,7 +42,7 @@ header div h3 {
 }
 
 
-nav {
+nav, nav div {
     background-color: #8AD584;
     width: 100%;
     height: auto;
@@ -56,6 +56,10 @@ nav {
 
 nav a {
     font-size: larger;
+}
+
+nav div {
+    padding-bottom: 0px; /* to override the bottom padding for this div which is only displayed when user is logged in */
 }
 
 
@@ -206,6 +210,23 @@ nav a {
     text-align: left;
 }
 
+.profile-headings {
+    text-align: right;
+    padding: 5px 20px 5px 0px;
+}
+
+.profile-details {
+    text-align: left;
+}
+
+.profile-button {
+    background-color: #3EE338;
+    width: max-content;
+    padding: 5px 10px 5px 10px;
+    font-size: medium;
+    cursor: pointer;
+}
+
 
 /* styles that apply across individual elements */
 
@@ -272,6 +293,20 @@ nav a {
 }
 .social-media-icons a:hover {
     color: #0077B5; /* hover color */
+}
+
+.profile-table {
+    justify-self: center;
+    font-size: larger;
+}
+
+.profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    margin: 25px 15px;
 }
 
 

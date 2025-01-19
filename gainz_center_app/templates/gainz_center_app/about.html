@@ -30,6 +30,11 @@
         <a href="{% url 'our-gym' %}">Our Gym</a>
         {% if request.session.username %}
         <a href="{% url 'my-profile' %}">My Profile</a>
+        <div>
+            <a href="{% url 'my-sessions' %}">My Sessions</a>
+            <a href="{% url 'my-prs' %}">My PRs</a>
+            <a href="{% url 'personal-trainers' %}">Personal Trainers</a>
+        </div>
         {% else %}
         <a href="{% url 'login' %}">Login</a>
         {% endif %}
