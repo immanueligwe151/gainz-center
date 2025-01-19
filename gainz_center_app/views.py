@@ -20,6 +20,9 @@ def our_gym(request):
     return render(request, 'gainz_center_app/our-gym.html', { 'equipments' : equipments })
 
 def login(request):
+    if 'username' in request.session:
+        return redirect('my-profile') #redirects logged in user to profile page if they try to cheekily type in the url for the login page
+
     if request.method == 'POST':
         username = request.POST.get('username-sign-in')
         password = request.POST.get('password-sign-in')
@@ -29,7 +32,7 @@ def login(request):
             if user.check_password(password):
                 request.session['username'] = username  # Store session
                 messages.success(request, "You have succesfully logged in!", extra_tags="login_success")
-                return redirect('home')  #to change to redirect to the profile page
+                return redirect('my-profile')  #to redirect to the profile page
             else:
                 messages.error(request, "Your username or password is incorrect, please try again.", extra_tags="login_failure")
         except Users.DoesNotExist:
@@ -39,6 +42,9 @@ def login(request):
     return render(request, 'gainz_center_app/login.html')
 
 def signup(request):
+    if 'username' in request.session:
+        return redirect('my-profile')
+
     if request.method == 'POST':
         valid = True
         name = request.POST.get('name-sign-up', '').strip()
@@ -101,6 +107,14 @@ def logout(request):
     return redirect('home')
 
 def my_profile(request):
+    if 'username' not in request.session:
+        return redirect('home')
+
     return render(request, 'gainz_center_app/my-profile.html')
+
+
+
+
+
 
     
