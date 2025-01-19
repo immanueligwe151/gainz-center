@@ -6,7 +6,6 @@ from django.core.exceptions import ValidationError
 
 # Create your views here.
 def home(request):
-    manually_clear_messages(request)
     return render(request, 'gainz_center_app/home.html')
 
 def faqs(request):
@@ -21,8 +20,6 @@ def our_gym(request):
     return render(request, 'gainz_center_app/our-gym.html', { 'equipments' : equipments })
 
 def login(request):
-    manually_clear_messages(request)
-
     if 'username' in request.session:
         return redirect('my-profile') #redirects logged in user to profile page if they try to cheekily type in the url for the login page
 
@@ -54,8 +51,8 @@ def signup(request):
         email = request.POST.get('email-sign-up', '').strip()
         mobile = request.POST.get('number-sign-up', '').strip()
         dob = request.POST.get('dob-sign-up', '').strip()
-        password1 = request.POST.get('password1', '').strip()
-        password2 = request.POST.get('password2', '').strip()
+        password1 = request.POST.get('password1', '')
+        password2 = request.POST.get('password2', '')
 
         if password1 != password2:
             messages.error(request, "Sorry, your passwords don't match, please check and try again.", extra_tags="password")
@@ -106,7 +103,6 @@ def signup(request):
 def logout(request):
     request.session.flush()
     messages.success(request, "Logged out successfully.")
-    manually_clear_messages(request)
     return redirect('home')
 
 def my_profile(request):
@@ -141,8 +137,58 @@ def personal_trainers(request):
     return render(request, 'gainz_center_app/personal-trainers.html') 
 
 
+def change_email(request):
+    if 'username' in request.session:
+        username = request.session['username']
+        try:
+            user = Users.objects.get(username=username)
+            email = request.POST.get('email-change', '').strip()
+            user.email = email
+            user.save()
+            messages.success(request, 'You have succesfully changed your email.')
+            return redirect('my-profile')
+        except Users.DoesNotExist:
+            messages.failure(request, 'There was an issue, please try again.')
+            return redirect('my-profile')
 
+def change_password(request):
+    if 'username' in request.session:
+        username = request.session['username']
+        try:
+            user = Users.objects.get(username=username)
+            old_pass = request.POST.get('old-pass')
+            new_pass = request.POST.get('new-pass')
+            new_pass_conf = request.POST.get('new-pass-conf')
 
-def manually_clear_messages(request):
-    if '_messages' in request.session:
-        del request.session['_messages']
+            if user.check_password(old_pass):
+                if new_pass == new_pass_conf:
+                    user.set_password(new_pass)
+                    user.save()
+                    messages.success(request, "Your password has been changed succesfully!")
+                    return redirect('my-profile')
+                else:
+                    messages.error(request, "Your new passwords don't match. Please try again")
+                    return redirect('my-profile')
+            else:
+                messages.error(request, "Your entered old password is incorrect, please try again.")
+                return redirect('my-profile')
+        except Users.DoesNotExist:
+            return redirect('my-profile')
+
+def delete_account(request):
+    if 'username' in request.session:
+        username = request.session['username']
+        try:
+            user = Users.objects.get(username=username)
+            password = request.POST.get('pass-acc-del')
+
+            if user.check_password(password):
+                user.delete()
+                messages.success(request, "You have succesfully deleted your account.")
+                return logout(request)
+            else:
+                messages.error(request, "The password you entered was wrong. Please try again.")
+                return redirect('my-profile')
+        except Users.DoesNotExist:
+            return redirect('my-profile')
+

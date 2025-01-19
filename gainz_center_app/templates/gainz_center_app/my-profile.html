@@ -69,16 +69,71 @@
 
     <section>
         <div class="profile-actions">
-            <button class="profile-button irish-grover-font small-device-text">Change Password</button>
-            <button class="profile-button irish-grover-font small-device-text">Change Email</button>
-            <button class="profile-button irish-grover-font small-device-text">Delete Account</button>
+            <button class="profile-button irish-grover-font small-device-text" onclick="openDialog(1)">Change Password</button>
+            <button class="profile-button irish-grover-font small-device-text" onclick="openDialog(2)">Change Email</button>
+            <button class="profile-button irish-grover-font small-device-text" onclick="openDialog(3)">Delete Account</button>
             <form action="{% url 'logout' %}" method="post" id="logout-form" style="display: inline;">
                 {% csrf_token %}
                 <input type="submit" value="Logout" class="profile-button irish-grover-font small-device-text">
             </form>
         </div>
-
         
+        {% if messages %}
+        <div style="justify-items: center; text-align: center;">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} basic-font">
+                {{ message }}
+                <button class="close-alert" onclick="this.parentElement.style.display='none';">&times;</button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+
+    </section>
+
+    <section>
+        <div id="dialog" class="dialog profile-dialog" style="display: none;">
+            <div class="dialog-content" id="dialog-content">
+                <span class="close-btn" id="close-dialog-btn" onclick="closeDialog();">&times;</span>
+                <div id="change-email-div" class="change-profile" style="display: none">
+                    <h3 class="irish-grover-font page-header-text">Change email</h3>
+                    <form id="change-email-form" class="auth-form" method="post" action="{% url 'change-email' %}">
+                        {% csrf_token %}
+                        <input type="email" id="email-change" name="email-change" class="auth-form-fields" placeholder="Enter your new email here*"
+                            required><br>
+                        <button type="submit" class="auth-button irish-grover-font">Change email</button><br>
+                    </form>
+                </div>
+
+                <div id="change-password-div" class="change-profile" style="display: none">
+                    <h3 class="irish-grover-font page-header-text">Change password</h3>
+                    <form id="change-pass-form" class="auth-form" method="post" action="{% url 'change-password' %}">
+                        {% csrf_token %}
+                        <input type="password" id="old-pass" name="old-pass" class="auth-form-fields" placeholder="Enter your current password here*"
+                            required><br>
+                        <input type="password" id="new-pass" name="new-pass" class="auth-form-fields" placeholder="Enter your new password here*"
+                            required><br>
+                        <input type="password" id="new-pass-conf" name="new-pass-conf" class="auth-form-fields" placeholder="Re-enter your new password here*"
+                            required><br>
+                        <button type="submit" class="auth-button irish-grover-font">Change password</button><br>
+                    </form>
+                </div>
+
+                <div id="delete-acc-div" class="change-profile" style="display: none">
+                    <h3 class="irish-grover-font page-header-text">Delete account</h3>
+                    <div>
+                        <h4 class="basic-font small-device-text" style="font-weight: 600; text-align: center;">WARNING: If you delete your account you lose your membership, and you lose all of your gym records! Enter your password below to confirm that you understand this.</h4>
+                    </div>
+                        <form id="del-acc-form" class="auth-form" method="post" action="{% url 'delete-account' %}">
+                            {% csrf_token %}
+                        <input type="password" id="pass-acc-del" name="pass-acc-del" class="auth-form-fields" placeholder="Enter your password to confirm*"
+                            required><br>
+                        <button type="submit" class="auth-button irish-grover-font">Delete account</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
 
 
