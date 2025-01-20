@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import FAQs, Equipment, Users
+from .models import FAQs, Equipment, Users, MySessions, Exercises, ExerciseTypes, SessionExercises
 from django.contrib import messages
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
@@ -121,8 +121,14 @@ def my_profile(request):
 def my_sessions(request):
     if 'username' not in request.session:
         return redirect('home')
-
-    return render(request, 'gainz_center_app/my-sessions.html')
+    else:
+        username = request.session['username']
+        try:
+            sessions = MySessions.objects.filter(username__username=username)
+            exercises = SessionExercises.objects.filter(username__username=username)
+            return render(request, 'gainz_center_app/my-sessions.html', { 'sessions': sessions, 'exercises': exercises })
+        except Exception:
+            return render(request, 'gainz_center_app/my-sessions.html', { 'sessions': [], 'exercises': [] })
 
 def my_prs(request):
     if 'username' not in request.session:

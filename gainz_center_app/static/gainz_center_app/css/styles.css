@@ -290,6 +290,27 @@ nav div {
     color: #fff;
 }
 
+.start-and-end-times {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.start-and-end-times span{
+    display: flex;
+    flex-direction: row;
+    gap: 5px
+}
+
+.session-exercises th, .session-exercises td {
+    text-align: left;
+    padding-right: 20px;
+}
+
+.session-exercises td {
+    padding-bottom: 10px;
+}
+
 /* Add some close button styling if needed */
 .alert .close-alert {
     float: right;
@@ -494,6 +515,11 @@ nav div {
 
     .alert {
         width: 65vw;
+    }
+
+    .start-and-end-times {
+        flex-wrap: wrap;
+        gap: 8px;
     }
     
 }

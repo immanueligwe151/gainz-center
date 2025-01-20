@@ -36,15 +36,70 @@
     </nav>
 
     <section>
-        <h2 class="irish-grover-font page-header-text">My Sessopms</h2>
+        <h2 class="irish-grover-font page-header-text">My Sessions</h2>
         <div class="basic-font intro">
-            <p class="small-device-text">Sessions page</p>
+            <p class="small-device-text">Below are all of your recorded sessions! Click on each session to see more details of the exercises you did during that session! To record a new session, simply click the button below.</p>
+            <button class="profile-button irish-grover-font small-device-text">Add New Session</button>
         </div>
     </section>
 
     <section>
+        {% if sessions %}
+            {% for session in sessions %}
+            <div class="collapsible-div">
+                <div class="collapsible-header">
+                    <h3 class="irish-grover-font">Session on {{ session.date_of_session }}</h3>
+                    <div id="arrow" class="arrow">&#9660;</div> <!-- Down arrow -->
+                </div>
+                <div class="collapsible-content">
+                    <div class="start-and-end-times">
+                        <span>
+                            <p class="irish-grover-font">Start time:</p>
+                            <p class="basic-font">{{ session.check_in_time|date:"g a" }}</p>
+                        </span>
+                        <span>
+                            <p class="irish-grover-font">End time:</p>
+                            <p class="basic-font">{{ session.check_out_time|date:"g a" }}</p>
+                        </span>
+                    </div>
+            
+                    <h4 class="irish-grover-font">Exercises Performed</h4>
+                    <table class="session-exercises">
+                        <tr class="irish-grover-font">
+                            <th>Name</th>
+                            <th>Set</th>
+                            <th>Reps</th>
+                            <th>Weight</th>
+                        </tr>
+                        {% for exercise in exercises %}
+                            {% if exercise.session_id == session %}
+                            <tr class="basic-font">
+                                <td>{{ exercise.exercise_name }}</td>
+                                <td>{{ exercise.set_number }}</td>
+                                <td>{{ exercise.reps }}</td>
+                                <td>{{ exercise.weight }}{{ exercise.unit }}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="basic-font intro" style="margin-top: 50px;">
+                <p class="small-device-text">No recorded gym sessions were found. Please add a new session by clicking the button above.</p>
+            </div>
+        {% endif %}
         
-        
+    </section>
+
+    <section>
+        <div id="dialog" class="dialog session-dialog" style="display: none;">
+            <div class="dialog-content" id="dialog-content">
+                <span class="close-btn" id="close-dialog-btn" onclick="closeDialog();">&times;</span>
+                
+            </div>
+        </div>
     </section>
 
 
