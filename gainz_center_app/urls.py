@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, faqs, about, our_gym, login, signup, logout, my_profile, my_prs, my_sessions, personal_trainers, change_email, change_password, delete_account
+from .views import home, faqs, about, our_gym, login, signup, logout, my_profile, my_sessions, personal_trainers, change_email, change_password, delete_account, add_new_session
 
 urlpatterns = [
     path('', home, name='home'),
@@ -10,12 +10,12 @@ urlpatterns = [
     path('signup', signup, name='signup'),
     path('logout', logout, name='logout'),
     path('my-profile', my_profile, name='my-profile'),
-    path('my-prs', my_prs, name='my-prs'),
     path('my-sessions', my_sessions, name='my-sessions'),
     path('personal-trainers', personal_trainers, name='personal-trainers'),
     path('change-email', change_email, name='change-email'),
     path('change-password', change_password, name='change-password'),
-    path('delete-account', delete_account, name='delete-account')
+    path('delete-account', delete_account, name='delete-account'),
+    path('add-new-session', add_new_session, name='add-new-session'),
     
 
 ]

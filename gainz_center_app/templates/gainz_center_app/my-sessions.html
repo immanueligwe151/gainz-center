@@ -30,7 +30,6 @@
         <a href="{% url 'my-profile' %}">My Profile</a>
         <div>
             <a href="{% url 'my-sessions' %}">My Sessions</a>
-            <a href="{% url 'my-prs' %}">My PRs</a>
             <a href="{% url 'personal-trainers' %}">Personal Trainers</a>
         </div>
     </nav>
@@ -39,7 +38,7 @@
         <h2 class="irish-grover-font page-header-text">My Sessions</h2>
         <div class="basic-font intro">
             <p class="small-device-text">Below are all of your recorded sessions! Click on each session to see more details of the exercises you did during that session! To record a new session, simply click the button below.</p>
-            <button class="profile-button irish-grover-font small-device-text">Add New Session</button>
+            <button class="profile-button irish-grover-font small-device-text" onclick="openDialog(0)">Add New Session</button>
         </div>
     </section>
 
@@ -94,9 +93,82 @@
     </section>
 
     <section>
-        <div id="dialog" class="dialog session-dialog" style="display: none;">
-            <div class="dialog-content" id="dialog-content">
+        <div id="dialog" class="dialog" style="display: none;">
+            <div class="dialog-content session-dialog" id="dialog-content">
                 <span class="close-btn" id="close-dialog-btn" onclick="closeDialog();">&times;</span>
+                <div>
+                    <h3 class="irish-grover-font page-header-text">Add New Session</h3>
+                </div>
+                <form id="new-session">
+                    {% csrf_token %}
+                    <div class="new-session-times">
+                        <span>
+                            <label for="start-time" class="basic-font">Start time: </label>
+                            <input type="time" name="start-time" id="start-time" style="margin-right:20px;" required>
+                        </span>
+                        <span>
+                            <label for="end-time" class="basic-font">End time: </label>
+                            <input type="time" name="end-time" id="end-time" required>
+                        </span>
+                    </div>
+
+                    <div>
+                        <br>
+                        <h4 class="irish-grover-font page-header-text">What did you train?</h4>
+                    </div>
+
+                    <div>
+                        <h5 class="basic-font" style="margin: 5px;">Your exercises will appear here below</h5>
+                        <div class="show-exercises">
+                            <table class="session-exercises"  id="show-new-exercises">
+                                <tr class="irish-grover-font">
+                                    <th>Name</th>
+                                    <th>Set</th>
+                                    <th>Reps</th>
+                                    <th>Weight</th>
+                                </tr>
+                                <!--to use JavaScript to inject the other items here-->
+                                
+                            </table>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 class="basic-font" style="margin: 5px;">Input your exercise details here below</h5>
+                        <div>
+                            <span class="input-exercises" id="input-exercises">
+                                <select id="name-choice">
+                                    <option value="" disabled selected>Exercise name</option>
+                                    {% if list_exercises %}
+                                        {% for ex in list_exercises %}
+                                            <option value="{{ ex.exercise_name }}">{{ ex.exercise_name }}</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                                <input type="number" id="set-input" style="width: 50px;" placeholder="Set">
+                                <input type="number" id="reps-input" style="width: 50px;" placeholder="Reps">
+                                <input type="number" id="weight-input" style="width: 70px;" placeholder="Weight">
+                                <select id="unit-input">
+                                    <option value="" disabled selected>Unit</option>
+                                    <option value="kg">kg</option>
+                                    <option value="lb">lb</option>
+                                </select>
+                            </span>
+                            <div style="display: flex;justify-content: right; margin-top:5px;">
+                                <button type="button" class="auth-button irish-grover-font" id="add-exercise">Add exercise</button>
+                            </div>
+                            <div>
+                                <p id="missing-input" class="basic-font intro" style="color: red; text-align: center; font-size: small; font-weight: 600;"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:15px;">
+                        <h5 class="basic-font">Click here to create your new session</h5>
+                        <input type="submit" value="Add new session" class="irish-grover-font auth-button" style="width: auto" id="new-session-btn">
+                    </div>
+                    
+                </form>
                 
             </div>
         </div>

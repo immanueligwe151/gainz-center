@@ -404,6 +404,18 @@ nav div {
     margin: 25px 15px;
 }
 
+.session-dialog {
+    width: fit-content;
+    padding: 20px;
+}
+
+.show-exercises {
+    height: auto;
+    min-height: 10px;
+    background-color: gray;
+    padding: 10px;
+}
+
 
 
 /* styles that add further styling to  specific elements within a class or element-group */

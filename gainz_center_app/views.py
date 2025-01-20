@@ -3,6 +3,9 @@ from .models import FAQs, Equipment, Users, MySessions, Exercises, ExerciseTypes
 from django.contrib import messages
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from django.http import JsonResponse
+from datetime import datetime
+import json
 
 # Create your views here.
 def home(request):
@@ -126,15 +129,12 @@ def my_sessions(request):
         try:
             sessions = MySessions.objects.filter(username__username=username)
             exercises = SessionExercises.objects.filter(username__username=username)
-            return render(request, 'gainz_center_app/my-sessions.html', { 'sessions': sessions, 'exercises': exercises })
+            types = ExerciseTypes.objects.all()
+            list_exercises = Exercises.objects.all()
+            return render(request, 'gainz_center_app/my-sessions.html', { 'sessions': sessions, 'exercises': exercises, 'types': types, 'list_exercises': list_exercises })
         except Exception:
-            return render(request, 'gainz_center_app/my-sessions.html', { 'sessions': [], 'exercises': [] })
+            return render(request, 'gainz_center_app/my-sessions.html', { 'sessions': [], 'exercises': [], 'types': [], 'list_exercises': [] })
 
-def my_prs(request):
-    if 'username' not in request.session:
-        return redirect('home')
-
-    return render(request, 'gainz_center_app/my-prs.html')
 
 def personal_trainers(request):
     if 'username' not in request.session:
@@ -197,4 +197,61 @@ def delete_account(request):
                 return redirect('my-profile')
         except Users.DoesNotExist:
             return redirect('my-profile')
+
+def add_new_session(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+
+            # this is to extract and validate date and time fields
+            date_str = data.get('date')
+            start_time_str = data.get('startTime')
+            end_time_str = data.get('endTime')
+            exercises = data.get('exercises', [])
+
+            start_time = datetime.fromisoformat(start_time_str)
+            end_time = datetime.fromisoformat(end_time_str)
+            date = datetime.fromisoformat(date_str)
+
+            # creates the session object
+            my_session = MySessions.objects.create(
+                username=Users.objects.get(username=request.session['username']), 
+                date_of_session=date, 
+                pre_made=0, 
+                check_in_time=start_time, 
+                check_out_time=end_time
+            )
+
+            # creates the exercises
+            for exercise_data in exercises:
+                name = exercise_data['name']
+                sets = exercise_data['set']
+                reps = exercise_data['rep']
+                weight = exercise_data['weight']
+                unit = exercise_data['unit']
+
+                # gets the exercise object
+                exercise_obj = Exercises.objects.get(exercise_name=name)
+
+                # saves the exercises linked to the session
+                SessionExercises.objects.create(
+                    username=Users.objects.get(username=request.session['username']),
+                    session_id=my_session,
+                    exercise_name=exercise_obj,
+                    set_number=sets,
+                    reps=reps,
+                    weight=weight,
+                    unit=unit
+                )
+
+            return JsonResponse({'message': 'Data received successfully!'}, status=201)
+
+        except Exercises.DoesNotExist:
+            return JsonResponse({'error': 'Invalid exercise name'}, status=400)
+        except ValueError as e:
+            return JsonResponse({'error': f'Invalid datetime format: {str(e)}'}, status=400)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+
+    return JsonResponse({'message': 'Invalid request method.'}, status=405)
 
