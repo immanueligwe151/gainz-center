@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import FAQs, Equipment, Users, MySessions, Exercises, ExerciseTypes, SessionExercises
+from .models import FAQs, Equipment, Users, MySessions, Exercises, ExerciseTypes, SessionExercises, PersonalTrainers
 from django.contrib import messages
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
@@ -140,7 +140,8 @@ def personal_trainers(request):
     if 'username' not in request.session:
         return redirect('home')
 
-    return render(request, 'gainz_center_app/personal-trainers.html') 
+    pt_list = PersonalTrainers.objects.all()
+    return render(request, 'gainz_center_app/personal-trainers.html', { 'pt_list': pt_list }) 
 
 
 def change_email(request):

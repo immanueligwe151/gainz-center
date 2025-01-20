@@ -309,3 +309,33 @@ INSERT INTO equipment VALUES (
     'https://i.postimg.cc/7Yjy5hN2/3d-gym-equipment.jpg',
     8
 );
+
+ALTER TABLE personal_trainers
+ADD image_link VARCHAR(255) NOT NULL;
+
+INSERT INTO personal_trainers VALUES (
+	'Foad Shariyati',
+    "I help clients achieve their ideal physique through tailored training programs and expert guidance. With a focus on hypertrophy, symmetry, and progressive overload, I design workouts to maximize muscle growth and strength. I emphasize proper form, effective recovery, and goal-specific nutrition to ensure sustainable results. Whether you're preparing for competition or building your dream body, I’m here to guide you every step of the way.",
+    '2022-06-04',
+    'shariyatifitness@gmail.com',
+    '07291003928',
+    'https://i.postimg.cc/gk7w2b84/pexels-foadshariyati-30206161-Copy.jpg'
+);
+
+INSERT INTO personal_trainers VALUES(
+	'Cesar Geleao',
+    "I help clients build strength and master the big three lifts: squat, bench press, and deadlift. My programs are tailored to improve technique, maximize power, and progressively increase lifting performance. With a focus on proper form, injury prevention, and recovery, I ensure safe and effective training. Whether you're competing or just aiming to lift heavier, I’m here to guide you every step of the way.",
+    '2021-12-05',
+    'gelion@fitnessbusiness.org',
+    '07991820113',
+    'https://i.postimg.cc/VNq5gSTH/pexels-cesar-galeao-1673528-3289711-Copy.jpg'
+);
+
+INSERT INTO personal_trainers VALUES (
+	'Lucie Talling',
+    "I focus on creating personalized fitness programs that help clients burn fat, build strength, and achieve sustainable results. By combining effective workouts with practical nutrition guidance, I ensure a balanced approach to reaching your goals. I prioritize proper form, accountability, and long-term habits to make your journey enjoyable and successful. Whether you're just starting or looking to break through a plateau, I’m here to guide and support you every step of the way.",
+    '2023-05-10',
+    'tellingontheweight@gmail.com',
+    '07652019353',
+    'https://i.postimg.cc/2yMzrmMZ/pexels-shkrabaanthony-4662359-Copy.jpg'
+);

@@ -101,4 +101,18 @@ class SessionExercises(models.Model):
         managed = False
 
     def __str__(self):
-        return str(self.id) 
+        return str(self.id)
+
+class PersonalTrainers(models.Model):
+    pt_name = models.CharField(primary_key=True,max_length=255)
+    introduction = models.TextField()
+    date_started = models.DateField()
+    contact_email = models.CharField(max_length=255)
+    contact_phone = models.CharField(max_length=255)
+    image_link = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'personal_trainers'
+        managed = False
+    def __str__(self):
+        return self.pt_name
